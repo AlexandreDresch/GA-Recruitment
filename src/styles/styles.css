@@ -1,0 +1,31 @@
+header, section, footer {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  blockquote {
+    font-style: italic;
+  }
+  
+  blockquote footer {
+    font-size: 0.9em;
+  }
+  

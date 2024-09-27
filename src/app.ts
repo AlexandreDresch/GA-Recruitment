@@ -5,7 +5,7 @@ import { Footer } from "./components/footer";
 
 const app = document.getElementById("app") as HTMLElement;
 
-const headerComponent = new Header({ title: "Welcome to My Landing Page" });
+const headerComponent = new Header();
 const mainSectionComponent = new MainSection({
   subtitle: "Grow Your Business with Us",
   description: "We provide the best solutions to help your business succeed.",

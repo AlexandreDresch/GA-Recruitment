@@ -1,26 +1,44 @@
 import { Component } from "./component";
 
-interface HeaderProps {
-  title?: string;
-}
-
 export class Header extends Component {
-  constructor(props: HeaderProps) {
-    super(props);
-  }
-
   render(): string {
+    /*html*/
     return `
       <header>
-        <h1>${this.props.title || "Welcome to Our Website"}</h1>
         <nav>
+          <a href="/" class="logo" ></a>
+
           <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#testimonials">TESTIMONIALS</a></li>
+            <li><a class="cta" href="#join">JOIN</a></li>
+          </ul>
+
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+
+          <ul id="menu" class="hidden">
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#testimonials">TESTIMONIALS</a></li>
+            <li><a class="cta" href="#join">JOIN</a></li>
           </ul>
         </nav>
       </header>
     `;
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById("hamburger")!;
+  const menu = document.getElementById("menu")!;
+
+  hamburger.addEventListener("click", () => {
+    menu.classList.toggle("show");
+  });
+});

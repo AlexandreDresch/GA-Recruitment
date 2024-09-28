@@ -1,0 +1,11 @@
+Model Information:
+* title:	Gravitational Beam Emitter Blame!
+* source:	https://sketchfab.com/3d-models/gravitational-beam-emitter-blame-043b9f76f5bf4818aa04d3b7a445bc79
+* author:	Henry VIII (https://sketchfab.com/henryviii)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Gravitational Beam Emitter Blame!" (https://sketchfab.com/3d-models/gravitational-beam-emitter-blame-043b9f76f5bf4818aa04d3b7a445bc79) by Henry VIII (https://sketchfab.com/henryviii) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

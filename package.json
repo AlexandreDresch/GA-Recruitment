@@ -11,11 +11,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/three": "^0.169.0",
     "live-server": "^1.2.2",
     "ts-loader": "^9.5.1",
     "typescript": "^5.6.2"
   },
   "dependencies": {
+    "three": "^0.169.0",
     "webpack-cli": "^5.1.4"
   }
 }

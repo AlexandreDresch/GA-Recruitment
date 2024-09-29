@@ -1,8 +1,12 @@
 import { Component } from "./component";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export class MainSection extends Component {
+  private isUserInteracting: boolean = false;
+  private model: THREE.Object3D | null = null;
+
   render(): string {
     const sectionHtml = `
       <main>
@@ -34,25 +38,33 @@ export class MainSection extends Component {
       canvasDiv.appendChild(renderer.domElement);
     }
 
-    const light = new THREE.DirectionalLight(0xffffff, 2);
-    light.position.set(1, 1, 1).normalize();
+    const light = new THREE.DirectionalLight(0xffffff, 3);
+    light.position.set(4, 4, 20);
+    light.target.position.set(0, 0, 0);
     scene.add(light);
+    scene.add(light.target);
 
-    camera.position.z = 70;
+    camera.position.set(0, 0, 90);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
 
     const loader = new GLTFLoader();
     loader.load(
       "/public/assets/3d_models/gravitational_beam_emitter_blame/scene.gltf",
       (gltf) => {
-        const model = gltf.scene;
-        model.scale.set(2, 2, 2);
-        scene.add(model);
+        this.model = gltf.scene;
+        this.model.scale.set(2.5, 2.5, 2.5);
+        this.model.position.y += 20;
+        scene.add(this.model);
 
         const animate = () => {
           requestAnimationFrame(animate);
 
-          model.rotation.y += 0.01;
+          if (!this.isUserInteracting && this.model) {
+            this.model.rotation.y += 0.01;
+          }
 
+          controls.update();
           renderer.render(scene, camera);
         };
 
@@ -63,5 +75,13 @@ export class MainSection extends Component {
         console.error("An error occurred while loading the model:", error);
       }
     );
+
+    window.addEventListener("mousedown", () => {
+      this.isUserInteracting = true;
+    });
+
+    window.addEventListener("mouseup", () => {
+      this.isUserInteracting = false;
+    });
   }
 }

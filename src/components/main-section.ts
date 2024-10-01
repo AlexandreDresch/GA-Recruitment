@@ -8,9 +8,35 @@ export class MainSection extends Component {
   private model: THREE.Object3D | null = null;
 
   render(): string {
-    const sectionHtml = `
+    const sectionHtml = /*html*/ `
       <main>
-        <div id="three-canvas"></div>
+        <div class="banner-container">
+          <div class="banner banner-left">
+            <h1>OUR.MISSION</h1>
+            <p>Our mission is to ensure that the remnants 
+            of humanity thrive in a world dominated by 
+            endless architecture and hostile entities.</p>
+          </div>
+
+          <div class="banner banner-right">
+            <div>
+              <h2>Application Procedure</h2>
+
+              <img src="/public/assets/icons/caret-double-up.svg" alt="Join Icon"/>
+            </div>
+            <p>Submit your application through the official network terminal. Applications are reviewed by our automated Safeguard overseers. Be prepared for immediate deployment should you meet our qualifications. </p>
+          </div>
+        </div>
+
+        <div class="promo-container">
+          <p>今すぐ参加して重力ビームエミッターを受け取りましょう</p>
+        </div>
+
+        <div id="three-canvas">
+        <h3 id="overlay-text">Join Now</h3>
+        </div>
+
+        
       </main>
     `;
 
@@ -32,6 +58,7 @@ export class MainSection extends Component {
     const renderer = new THREE.WebGLRenderer();
 
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0);
 
     const canvasDiv = document.getElementById("three-canvas");
     if (canvasDiv) {
@@ -61,7 +88,7 @@ export class MainSection extends Component {
           requestAnimationFrame(animate);
 
           if (!this.isUserInteracting && this.model) {
-            this.model.rotation.y += 0.01;
+            this.model.rotation.y += 0.008;
           }
 
           controls.update();

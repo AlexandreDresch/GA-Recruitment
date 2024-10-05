@@ -4,11 +4,11 @@ interface ComponentProps {
 
 export class Component {
   props: ComponentProps;
-  element: HTMLElement;
+  element: DocumentFragment;
 
   constructor(props: ComponentProps = {}) {
     this.props = props;
-    this.element = document.createElement('div'); // Cria um elemento base
+    this.element = document.createDocumentFragment();
   }
 
   render(): string {
@@ -16,7 +16,11 @@ export class Component {
   }
 
   mount(target: HTMLElement): void {
-    this.element.innerHTML = this.render(); // Renderiza o conteúdo
-    target.appendChild(this.element); // Adiciona o elemento ao alvo
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = this.render();
+    while (tempDiv.firstChild) {
+      this.element.appendChild(tempDiv.firstChild);
+    }
+    target.appendChild(this.element);
   }
 }

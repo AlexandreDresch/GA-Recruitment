@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* CSS Reset */
 html,
 body,
@@ -103,11 +107,8 @@ section {
 }
 
 body {
-  line-height: 1;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  @apply leading-none bg-[color:var(--bg-color)] text-[color:var(--text-color)] box-border;
   font-family: "Roboto Mono", monospace;
-  box-sizing: border-box;
 }
 
 /* Variables */
@@ -122,323 +123,142 @@ body {
 
 /* App */
 #app {
-  width: 100%;
-  height: 100%;
-  background-color: var(--bg-color);
-  display: flex;
-  justify-content: center;
+  @apply w-full h-full bg-[color:var(--bg-color)] flex justify-center;
 }
 
 /* Header */
 header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg-color);
-  z-index: 9999;
+  @apply w-full fixed flex items-center justify-center bg-[color:var(--bg-color)] z-[9999] left-auto top-0;
 }
-
 header nav {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1240px;
-  align-items: center;
-  width: 100%;
-  margin: 20px 0;
-  background-color: -var(--bg-color);  
+  @apply flex justify-between max-w-[1240px] items-center w-full bg-[-var(--bg-color)] mx-0 my-5;
 }
 
 /* Header Menu */
 nav ul {
+  @apply flex justify-between w-full p-0;
   list-style: none;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0;
 }
-
 nav ul li {
-  margin: auto;
+  @apply m-auto last:ml-auto last:mr-0;
 }
-
-nav ul li:last-child {
-  margin-right: 0px;
-  margin-left: auto;
-}
-
 nav ul li a {
-  color: var(--text-color);
-  text-decoration: none;
-  transition: color 0.3s;
+  @apply text-[color:var(--text-color)] no-underline transition-[color] duration-[0.3s] hover:text-[color:var(--text-hover)];
 }
-
-nav ul li a:hover {
-  color: var(--text-hover);
-}
-
 nav ul li .cta {
-  color: var(--cta-color);
+  @apply text-[color:var(--cta-color)];
 }
 
 /* Logo */
 .logo {
-  width: 118px;
-  height: 55px;
-  color: var(--text-color);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: normal;
-  background-image: var(--logo-bg);
-  background-repeat: no-repeat;
-  background-size: contain;
+  @apply w-[118px] h-[55px] text-[color:var(--text-color)] text-sm font-bold leading-[normal] bg-[image:var(--logo-bg)] bg-no-repeat bg-contain;
 }
 
 /* Hamburger */
 .hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  z-index: 10;
+  @apply hidden flex-col cursor-pointer z-10;
 }
-
 .hamburger span {
-  height: 3px;
-  width: 25px;
-  background-color: var(--cta-color);
-  margin: 4px 0;
-  transition: all 0.3s ease;
+  @apply h-[3px] w-[25px] bg-[color:var(--cta-color)] transition-all duration-[0.3s] ease-[ease] mx-0 my-1;
 }
 
 /* Hamburger Menu */
 #menu {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  right: 0;
-  background-color: #000;
-  width: 100%;
+  @apply hidden flex-col absolute bg-black w-full px-0 py-2.5 right-0 top-[60px];
   list-style: none;
-  padding: 10px 0;
 }
-
 #menu li {
-  text-align: center;
-  padding: 10px 0;
+  @apply text-center px-0 py-2.5;
 }
-
 #menu.show {
-  display: flex;
+  @apply flex;
 }
-
 @media (max-width: 768px) {
   nav ul {
-    display: none;
+    @apply hidden;
   }
-
   nav ul li:last-child {
-    margin-right: 10px;
-    margin-left: 0;
+    @apply ml-0 mr-2.5;
   }
-
   .hamburger {
-    display: flex;
+    @apply flex;
   }
-}
-
-@media (max-width: 1024px) {
-
-}
-
-@media (max-width: 425) {
-
 }
 
 /* Main */
-
 main {
-  background-color: var(--bg-color);
-  width: auto;
-  max-width: 1240px;
-  position: absolute;
+  @apply bg-[color:var(--bg-color)] w-auto max-w-[1240px] absolute;
 }
-
 #three-canvas {
-  z-index: 1;
-  width: 100%;
-  max-width: 1440px;
+  @apply z-[1] w-full max-w-[1440px];
 }
-
 #overlay-text {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  font-size: 160px;
-  font-style: italic;
-  font-weight: 700;
-  line-height: normal;
-  top: 50%;
-  left: 50%;
-  text-align: center;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  color: white;
-  pointer-events: none;
+  @apply absolute w-full h-full text-[160px] italic font-bold leading-[normal] text-center -translate-x-2/4 -translate-y-2/4 z-[-1] text-[white] pointer-events-none left-2/4 top-2/4;
 }
-
 #three-canvas canvas {
-  width: 100%;
-  height: auto;
-  max-width: 1240px;
-  background-color: transparent;
+  @apply w-full h-auto max-w-[1240px] bg-transparent;
   image-rendering: pixelated;
 }
 
-@media (max-width: 1024px) {
-
-}
-
-@media (max-width: 425) {
-
-}
-
 /* Banner */
-
 .banner-container {
-  width: 100%;
-  height: 108px;
-  max-width: 1440px;
-  position: relative;
-  top: 100px;
-  left: 0;
-  z-index: 9998;
-  border: 2px solid #ffffff;
-  display: flex;
-  box-sizing: border-box;
-  justify-content: space-between;
+  @apply w-full h-[108px] max-w-[1440px] relative z-[9998] flex box-border justify-between border-2 border-solid border-white left-0 top-[100px];
 }
-
 .banner {
-  width: 33.333333%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @apply w-4/12 flex flex-col justify-center gap-[5px] p-5;
   align-items: left;
-  padding: 20px;
-  gap: 5px;
 }
-
 .banner-left {
-  border-right: 2px solid #ffffff;
+  @apply border-r-2 border-r-white border-solid;
 }
-
 .banner-right {
-  border-left: 2px solid #ffffff;
+  @apply border-l-2 border-l-white border-solid;
 }
-
 .banner h1 {
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  @apply text-[32px] not-italic font-bold leading-[normal];
 }
-
 .banner h2 {
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  @apply text-xl not-italic font-normal leading-[normal];
 }
-
 .banner p {
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  @apply text-[11px] not-italic font-normal leading-[normal];
 }
-
 .banner div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @apply flex items-center justify-between;
 }
-
 .banner div img {
-  width: 26px;
-  height: 26px;
+  @apply w-[26px] h-[26px];
 }
 
 /* Promo */
-
 .promo-container {
-  position: relative;
-  top: 120px;
-  left: 0;
-  z-index: 9999;
+  @apply relative z-[9999] left-0 top-[120px];
 }
-
 .promo-container p {
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  @apply text-[10px] not-italic font-normal leading-[normal];
 }
-
 .summary-container {
-  position: absolute;
-  max-width: 400px;
-  top: 70%;
-  left: 0;
-  z-index: 9999;
+  @apply absolute max-w-[400px] z-[9999] left-0 top-[70%];
 }
-
 .summary-container p {
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  @apply text-xs not-italic font-normal leading-[normal];
 }
-
 .banner-image {
-  width: 407px;
-  height: 129px;
-  color: var(--text-color);
-  background-image: var(--banner-bg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 9999;
-  position: absolute;
-  max-width: 400px;
-  top: 70%;
-  right: 0;
+  @apply w-[407px] h-[129px] text-[color:var(--text-color)] bg-[image:var(--banner-bg)] bg-no-repeat bg-contain z-[9999] absolute max-w-[400px] right-0 top-[70%];
 }
-
 section,
 footer {
-  padding: 20px;
-  text-align: center;
+  @apply text-center p-5;
 }
-
 button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
+  @apply bg-[#007bff] text-[white] cursor-pointer px-5 py-2.5 border-[none];
 }
-
 button:focus {
   outline: 2px solid var(--cta-color);
 }
-
 blockquote {
-  font-style: italic;
+  @apply italic;
 }
-
 blockquote footer {
-  font-size: 0.9em;
+  @apply text-[0.9em];
 }

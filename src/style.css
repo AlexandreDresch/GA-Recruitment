@@ -123,15 +123,15 @@ body {
 
 /* App */
 #app {
-  @apply w-full h-full bg-[color:var(--bg-color)] flex justify-center;
+  @apply w-full h-full bg-[color:var(--bg-color)] flex flex-col items-center;
 }
 
 /* Header */
 header {
-  @apply w-full fixed flex items-center justify-center bg-[color:var(--bg-color)] z-[9999] left-auto top-0;
+  @apply w-full max-w-screen-xl fixed flex items-center justify-center bg-[color:var(--bg-color)] z-50 left-auto top-0;
 }
 header nav {
-  @apply flex justify-between max-w-[1240px] items-center w-full bg-[-var(--bg-color)] mx-0 my-5;
+  @apply flex justify-between items-center w-full bg-[-var(--bg-color)] mx-0 my-5;
 }
 
 /* Header Menu */
@@ -187,22 +187,23 @@ nav ul li .cta {
 
 /* Main */
 main {
-  @apply bg-[color:var(--bg-color)] w-auto max-w-[1240px] absolute;
+  @apply bg-[color:var(--bg-color)] w-full max-w-screen-xl relative;
 }
+
 #three-canvas {
-  @apply z-[1] w-full max-w-[1440px];
+  @apply w-full max-w-screen-xl;
 }
 #overlay-text {
-  @apply absolute w-full h-full text-[160px] italic font-bold leading-[normal] text-center -translate-x-2/4 -translate-y-2/4 z-[-1] text-[white] pointer-events-none left-2/4 top-2/4;
+  @apply absolute w-full text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[160px] italic font-bold leading-[normal] z-0 text-[white] pointer-events-none;
 }
 #three-canvas canvas {
-  @apply w-full h-auto max-w-[1240px] bg-transparent;
+  @apply h-full max-h-min w-full max-w-full bg-transparent z-0 relative;
   image-rendering: pixelated;
 }
 
 /* Banner */
 .banner-container {
-  @apply w-full h-[108px] max-w-[1440px] relative z-[9998] flex box-border justify-between border-2 border-solid border-white left-0 top-[100px];
+  @apply h-[108px] w-full max-w-screen-xl relative z-40 flex box-border justify-between border-2 border-solid border-white left-0 top-[100px];
 }
 .banner {
   @apply w-4/12 flex flex-col justify-center gap-[5px] p-5;
@@ -232,20 +233,26 @@ main {
 
 /* Promo */
 .promo-container {
-  @apply relative z-[9999] left-0 top-[120px];
+  @apply absolute z-40 left-0 top-[220px];
 }
 .promo-container p {
   @apply text-[10px] not-italic font-normal leading-[normal];
 }
 .summary-container {
-  @apply absolute max-w-[400px] z-[9999] left-0 top-[70%];
+  @apply absolute max-w-[400px] z-40 left-0 top-[70%];
 }
 .summary-container p {
   @apply text-xs not-italic font-normal leading-[normal];
 }
 .banner-image {
-  @apply w-[407px] h-[129px] text-[color:var(--text-color)] bg-[image:var(--banner-bg)] bg-no-repeat bg-contain z-[9999] absolute max-w-[400px] right-0 top-[70%];
+  @apply w-[407px] h-[129px] text-[color:var(--text-color)] bg-[image:var(--banner-bg)] bg-no-repeat bg-contain z-40 absolute max-w-[400px] right-0 top-[70%];
 }
+
+/* Details */
+.details-container {
+  @apply absolute z-40 left-0 top-[270px] w-full flex justify-between;
+}
+
 section,
 footer {
   @apply text-center p-5;

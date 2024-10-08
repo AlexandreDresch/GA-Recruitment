@@ -32,6 +32,11 @@ export class MainSection extends Component {
           <p>今すぐ参加して重力ビームエミッターを受け取りましょう</p>
         </div>
 
+        <div class="details-container">
+          <img src="/assets/details-right.svg" alt="Right Details Image"/>
+          <img src="/assets/details-left.svg" alt="Left Details Image"/>          
+        </div>
+
         <div id="three-canvas">
           <h3 id="overlay-text">Join Now</h3>
         </div>        
@@ -86,8 +91,8 @@ export class MainSection extends Component {
       "./assets/3d_models/gravitational_beam_emitter_blame/scene.gltf",
       (gltf) => {
         this.model = gltf.scene;
-        this.model.scale.set(2.5, 2.5, 2.5);
-        this.model.position.y += 20;
+        this.model.scale.set(3, 3, 3);
+        this.model.position.y += 30;
         scene.add(this.model);
 
         const animate = () => {

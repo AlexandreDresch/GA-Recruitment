@@ -1,23 +1,19 @@
 {
-  "name": "ga-recruitment",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "the-city-administration-recruitment",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "build": "tsc",
-    "dev": "webpack --mode development -w"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "@types/three": "^0.169.0",
-    "live-server": "^1.2.2",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.6.2"
+    "typescript": "^5.5.3",
+    "vite": "^5.4.8"
   },
   "dependencies": {
-    "three": "^0.169.0",
-    "webpack-cli": "^5.1.4"
+    "@types/three": "^0.169.0",
+    "three": "^0.169.0"
   }
 }

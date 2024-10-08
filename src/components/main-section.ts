@@ -1,7 +1,7 @@
 import { Component } from "./component";
 import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 export class MainSection extends Component {
   private isUserInteracting: boolean = false;
@@ -22,7 +22,7 @@ export class MainSection extends Component {
             <div>
               <h2>Application Procedure</h2>
 
-              <img src="/public/assets/icons/caret-double-up.svg" alt="Join Icon"/>
+              <img src="/assets/icons/caret-double-up.svg" alt="Join Icon"/>
             </div>
             <p>Submit your application through the official network terminal. Applications are reviewed by our automated Safeguard overseers. Be prepared for immediate deployment should you meet our qualifications. </p>
           </div>
@@ -33,10 +33,16 @@ export class MainSection extends Component {
         </div>
 
         <div id="three-canvas">
-        <h3 id="overlay-text">Join Now</h3>
+          <h3 id="overlay-text">Join Now</h3>
+        </div>        
+
+        <div class="summary-container">
+          <p>
+          For centuries, The City Administration has worked in the shadows, maintaining order across the infinite layers of The Megastructure. We govern what little remains of human civilization, battling rogue AIs, uncontrollable human elements, and the ever-present threat of The Safeguard system. In these dark times, we seek the brightest minds to join our ranks and restore humanity’s rightful place in The City.
+          </p>
         </div>
 
-        
+        <div class="banner-image"></div>
       </main>
     `;
 
@@ -77,7 +83,7 @@ export class MainSection extends Component {
 
     const loader = new GLTFLoader();
     loader.load(
-      "/public/assets/3d_models/gravitational_beam_emitter_blame/scene.gltf",
+      "./assets/3d_models/gravitational_beam_emitter_blame/scene.gltf",
       (gltf) => {
         this.model = gltf.scene;
         this.model.scale.set(2.5, 2.5, 2.5);

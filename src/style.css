@@ -142,16 +142,141 @@ nav ul {
 nav ul li {
   @apply m-auto last:ml-auto last:mr-0;
 }
-nav ul li a {
-  @apply text-[color:var(--text-color)] no-underline transition-[color] duration-[0.3s] hover:text-[color:var(--text-hover)];
-}
+
 nav ul li .cta {
   @apply text-[color:var(--cta-color)];
 }
 
+nav ul li a {
+  text-decoration: none;
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+/* Buttons */
+.glitch-button {
+  display: block;
+  position: relative;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 0.75em;
+  letter-spacing: 0.35em;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid var(--color-border);
+  transition: all 0.2s ease;
+  margin: 0 auto;
+
+  &:before,
+  &:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8px 0;
+    width: 100%;
+    -webkit-clip: rect(0px, 0px, 0px, 0px);
+    clip: rect(0px, 0px, 0px, 0px);
+    background: var(--color-white);
+    color: var(--color-background);
+  }
+
+  &:before {
+    left: -3px;
+    top: -2px;
+    text-shadow: 2px 0 var(--color-white);
+    box-shadow: 2px 0 var(--color-white);
+  }
+
+  &:after {
+    left: 2px;
+    bottom: -2px;
+    text-shadow: -1px 0 var(--color-white);
+    box-shadow: -1px 0 var(--color-white);
+  }
+
+  &:hover {
+    background: var(--color-white);
+    color: var(--color-background);
+  }
+
+  &:hover:before {
+    animation: glitch-effect 1.5s infinite linear alternate-reverse;
+  }
+
+  &:hover:after {
+    animation: glitch-effect 2s infinite linear alternate;
+  }
+}
+
+@keyframes glitch-effect {
+  0% {
+    clip: rect(-3px, 600px, 0px, 0px);
+  }
+  5.88235% {
+    clip: rect(0px, 600px, 0px, 0px);
+  }
+  11.76471% {
+    clip: rect(-3px, 600px, 0px, 0px);
+  }
+  17.64706% {
+    clip: rect(-3px, 600px, 0px, 0px);
+  }
+  23.52941% {
+    clip: rect(100px, 600px, 100px, 0px);
+  }
+  29.41176% {
+    clip: rect(0px, 600px, 600px, 0px);
+  }
+  35.29412% {
+    clip: rect(100px, 600px, 0px, 0px);
+  }
+  41.17647% {
+    clip: rect(0px, 600px, 600px, 0px);
+  }
+  47.05882% {
+    clip: rect(100px, 600px, 0px, 0px);
+  }
+  52.94118% {
+    clip: rect(-3px, 600px, 0px, 0px);
+  }
+  58.82353% {
+    clip: rect(100px, 450px, 100px, 0px);
+  }
+  64.70588% {
+    clip: rect(0px, 450px, 0px, 0px);
+  }
+  70.58824% {
+    clip: rect(100px, 450px, 100px, 0px);
+  }
+  76.47059% {
+    clip: rect(0px, 450px, 0px, 0px);
+  }
+  82.35294% {
+    clip: rect(0px, 450px, 0px, 0px);
+  }
+  88.23529% {
+    clip: rect(0px, 450px, 0px, 0px);
+  }
+  94.11765% {
+    clip: rect(0px, 450px, 0px, 0px);
+  }
+  100% {
+    clip: rect(0px, 450px, 0px, 0px);
+  }
+}
+
 /* Logo */
-.logo {
-  @apply w-[118px] h-[55px] text-[color:var(--text-color)] text-sm font-bold leading-[normal] bg-[image:var(--logo-bg)] bg-no-repeat bg-contain;
+.logo-container {
+  @apply w-[118px] h-[55px] text-[color:var(--text-color)] text-sm font-bold leading-[normal] p-0;
+}
+
+.logo-container img {
+  @apply object-contain w-[118px] h-[55px] min-h-full max-w-full group-hover:hidden;
 }
 
 /* Hamburger */
@@ -250,8 +375,10 @@ main {
 
 /* Details */
 .details-container {
-  @apply absolute z-40 left-0 top-[270px] w-full flex justify-between;
+  @apply absolute z-0 left-0 top-[270px] w-full flex justify-between;
 }
+
+
 
 section,
 footer {

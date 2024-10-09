@@ -6,13 +6,15 @@ export class Header extends Component {
     return `
       <header>
         <nav>
-          <a href="/" class="logo" ></a>
+          <a href="/" class="logo-container glitch-button group" data-text="01010100 01000011 01000001">
+            <img src="./assets/logo.svg" alt="The City Administration - Home" class="group-hover:hidden"/>
+          </a>
 
           <ul>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#services">SERVICES</a></li>
-            <li><a href="#testimonials">TESTIMONIALS</a></li>
-            <li><a class="cta" href="#join">JOIN</a></li>
+            <li><a class="glitch-button" href="#about" data-text="ABOUT">ABOUT</a></li>
+            <li><a class="glitch-button" href="#services" data-text="SERVICES">SERVICES</a></li>
+            <li><a class="glitch-button" href="#testimonials" data-text="TESTIMONIALS">TESTIMONIALS</a></li>
+            <li><a class="cta glitch-button" data-text="JOIN" href="#join">JOIN</a></li>
           </ul>
 
           <div class="hamburger" id="hamburger">

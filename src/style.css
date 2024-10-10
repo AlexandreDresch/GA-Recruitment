@@ -128,7 +128,7 @@ body {
 
 /* Header */
 header {
-  @apply w-full max-w-screen-xl fixed flex items-center justify-center bg-[color:var(--bg-color)] z-50 left-auto top-0;
+  @apply w-full max-w-screen-xl fixed flex items-center justify-center bg-[color:var(--bg-color)] z-50 left-auto top-0 px-12 xl:px-10 2xl:px-0;
 }
 header nav {
   @apply flex justify-between items-center w-full bg-[-var(--bg-color)] mx-0 my-5;
@@ -169,7 +169,7 @@ nav ul li a {
   text-transform: uppercase;
   border: 1px solid var(--color-border);
   transition: all 0.2s ease;
-  margin: 0 auto;
+  @apply mx-0 md:mx-auto my-0;
 
   &:before,
   &:after {
@@ -289,11 +289,11 @@ nav ul li a {
 
 /* Hamburger Menu */
 #menu {
-  @apply hidden flex-col absolute bg-black w-full px-0 py-2.5 right-0 top-[60px];
+  @apply hidden flex-col justify-start absolute bg-black w-2/5 min-h-screen px-0 pt-10 right-0 top-[60px] gap-10;
   list-style: none;
 }
 #menu li {
-  @apply text-center px-0 py-2.5;
+  @apply w-full text-right px-0 pr-16 m-0;
 }
 #menu.show {
   @apply flex;
@@ -312,14 +312,14 @@ nav ul li a {
 
 /* Main */
 main {
-  @apply bg-[color:var(--bg-color)] w-full max-w-screen-xl relative;
+  @apply bg-[color:var(--bg-color)] w-full max-w-screen-xl relative px-12 xl:px-10 2xl:px-0;
 }
 
 #three-canvas {
   @apply w-full max-w-screen-xl;
 }
 #overlay-text {
-  @apply absolute w-full text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[160px] italic font-bold leading-[normal] z-0 text-[white] pointer-events-none;
+  @apply absolute w-full text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-6xl sm:text-8xl md:text-9xl lg:text-[160px] italic font-bold leading-[normal] z-0 text-[white] pointer-events-none;
 }
 #three-canvas canvas {
   @apply h-full max-h-min w-full max-w-full bg-transparent z-0 relative;
@@ -331,14 +331,14 @@ main {
   @apply h-[108px] w-full max-w-screen-xl relative z-40 flex box-border justify-between border-2 border-solid border-white left-0 top-[100px];
 }
 .banner {
-  @apply w-4/12 flex flex-col justify-center gap-[5px] p-5;
+  @apply w-full md:w-4/12 flex flex-col justify-center gap-[5px] p-5;
   align-items: left;
 }
 .banner-left {
-  @apply border-r-2 border-r-white border-solid;
+  @apply md:border-r-2 md:border-r-white border-solid;
 }
 .banner-right {
-  @apply border-l-2 border-l-white border-solid;
+  @apply border-l-2 border-l-white border-solid hidden md:block;
 }
 .banner h1 {
   @apply text-[32px] not-italic font-bold leading-[normal];
@@ -358,27 +358,25 @@ main {
 
 /* Promo */
 .promo-container {
-  @apply absolute z-40 left-0 top-[220px];
+  @apply absolute z-40 left-0 top-[220px] px-12 xl:px-10 2xl:px-0;
 }
 .promo-container p {
   @apply text-[10px] not-italic font-normal leading-[normal];
 }
 .summary-container {
-  @apply absolute max-w-[400px] z-40 left-0 top-[70%];
+  @apply absolute max-w-[400px] z-40 left-0 top-[70%] pl-12 xl:pl-10 2xl:pl-0;
 }
 .summary-container p {
   @apply text-xs not-italic font-normal leading-[normal];
 }
 .banner-image {
-  @apply w-[407px] h-[129px] text-[color:var(--text-color)] bg-[image:var(--banner-bg)] bg-no-repeat bg-contain z-40 absolute max-w-[400px] right-0 top-[70%];
+  @apply w-[407px] h-[129px] text-[color:var(--text-color)] bg-[image:var(--banner-bg)] bg-no-repeat bg-contain z-40 hidden lg:block absolute max-w-[400px] right-12 top-[72%] xl:top-[70%] xl:right-10 2xl:right-0;
 }
 
 /* Details */
 .details-container {
-  @apply absolute z-0 left-0 top-[270px] w-full flex justify-between;
+  @apply absolute z-0 left-0 top-[270px] w-full flex justify-between px-12 xl:px-10 2xl:px-0;
 }
-
-
 
 section,
 footer {

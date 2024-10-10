@@ -17,7 +17,7 @@ export class Header extends Component {
             <li><a class="cta glitch-button" data-text="JOIN" href="#join">JOIN</a></li>
           </ul>
 
-          <div class="hamburger" id="hamburger">
+          <div class="hamburger glitch-button" data-text="01101101 01100101 01101110 01110101" id="hamburger">
             <span></span>
             <span></span>
             <span></span>

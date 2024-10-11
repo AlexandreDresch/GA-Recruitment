@@ -11,9 +11,9 @@ export class Header extends Component {
           </a>
 
           <ul>
-            <li><a class="glitch-button" href="#about" data-text="ABOUT">ABOUT</a></li>
-            <li><a class="glitch-button" href="#services" data-text="SERVICES">SERVICES</a></li>
-            <li><a class="glitch-button" href="#testimonials" data-text="TESTIMONIALS">TESTIMONIALS</a></li>
+            <li><a class="glitch-button" href="#system" data-text="THE SYSTEM">THE SYSTEM</a></li>
+            <li><a class="glitch-button" href="#archive" data-text="ARCHIVE">ARCHIVE</a></li>
+            <li><a class="glitch-button" href="#operatives" data-text="OPERATIVES">OPERATIVES</a></li>
             <li><a class="cta glitch-button" data-text="JOIN" href="#join">JOIN</a></li>
           </ul>
 
@@ -25,9 +25,9 @@ export class Header extends Component {
 
 
           <ul id="menu" class="hidden">
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#services">SERVICES</a></li>
-            <li><a href="#testimonials">TESTIMONIALS</a></li>
+            <li><a href="#system">ABOUT</a></li>
+            <li><a href="#archive">ARCHIVE</a></li>
+            <li><a href="#operatives">OPERATIVES</a></li>
             <li><a class="cta" href="#join">JOIN</a></li>
           </ul>
         </nav>

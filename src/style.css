@@ -104,10 +104,15 @@ menu,
 nav,
 section {
   display: block;
+  scroll-margin-top: 80px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  @apply leading-none bg-[color:var(--bg-color)] text-[color:var(--text-color)] box-border;
+  @apply leading-none bg-black text-[color:var(--text-color)] box-border;
   font-family: "Roboto Mono", monospace;
 }
 
@@ -115,7 +120,6 @@ body {
 :root {
   --bg-color: #000000;
   --text-color: #ffffff;
-  --text-hover: #3d3d3d;
   --cta-color: #ff0000;
   --logo-bg: url("/assets/logo.svg");
   --banner-bg: url("/assets/banner-image.svg");
@@ -123,15 +127,15 @@ body {
 
 /* App */
 #app {
-  @apply w-full h-full bg-[color:var(--bg-color)] flex flex-col items-center;
+  @apply w-full h-full bg-black flex flex-col items-center;
 }
 
 /* Header */
 header {
-  @apply w-full max-w-screen-xl fixed flex items-center justify-center bg-[color:var(--bg-color)] z-50 left-auto top-0 px-12 xl:px-10 2xl:px-0;
+  @apply w-full max-w-screen-xl fixed flex items-center justify-center bg-black z-50 left-auto top-0 px-12 xl:px-10 2xl:px-0;
 }
 header nav {
-  @apply flex justify-between items-center w-full bg-[-var(--bg-color)] mx-0 my-5;
+  @apply flex justify-between items-center w-full bg-black mx-0 my-5;
 }
 
 /* Header Menu */
@@ -312,7 +316,7 @@ nav ul li a {
 
 /* Main */
 main {
-  @apply bg-[color:var(--bg-color)] w-full max-w-screen-xl relative px-12 xl:px-10 2xl:px-0;
+  @apply bg-black w-full max-w-screen-xl relative px-12 xl:px-10 2xl:px-0;
 }
 
 #three-canvas {
@@ -331,7 +335,7 @@ main {
   @apply h-[108px] w-full max-w-screen-xl relative z-40 flex box-border justify-between border-2 border-solid border-white left-0 top-[100px];
 }
 .banner {
-  @apply w-full md:w-4/12 flex flex-col justify-center gap-[5px] p-5;
+  @apply w-full md:w-4/12 flex flex-col justify-center gap-[5px] p-3;
   align-items: left;
 }
 .banner-left {
@@ -378,19 +382,107 @@ main {
   @apply absolute z-0 left-0 top-[270px] w-full flex justify-between px-12 xl:px-10 2xl:px-0;
 }
 
+/* System Section */
+.section-title {
+  display: block;
+  position: relative;
+  background: none;
+  border: none;
+  outline: none;
+  margin-top: 10px;
+  padding: 8px 0px;
+  font-size: 36px;
+  width: 100%;
+  letter-spacing: 0.35em;
+  text-align: left;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  @apply mx-0 md:mx-auto my-0;
+
+  &:before,
+  &:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8px 0;
+    width: 100%;
+    -webkit-clip: rect(0px, 0px, 0px, 0px);
+    clip: rect(0px, 0px, 0px, 0px);
+    background: var(--text-color);
+    color: var(--bg-color);
+  }
+
+  &:before {
+    left: -3px;
+    top: -2px;
+    text-shadow: 2px 0 var(--text-color);
+    box-shadow: 2px 0 var(--text-color);
+  }
+
+  &:after {
+    left: 2px;
+    bottom: -2px;
+    text-shadow: -1px 0 var(--text-color);
+    box-shadow: -1px 0 var(--text-color);
+  }
+
+  &:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+  }
+
+  &:hover:before {
+    animation: glitch-effect 1.5s infinite linear alternate-reverse;
+  }
+
+  &:hover:after {
+    animation: glitch-effect 2s infinite linear alternate;
+  }
+}
+
+.section-subtitle {
+  @apply block relative text-xl w-full tracking-[0.35em] text-left uppercase mt-2.5 px-0 py-2 border-[none];
+}
+.section-inner-subtitle {
+  @apply block relative text-base w-full tracking-[0.35em] text-left uppercase mb-2.5 border-[none];
+}
+
+#system {
+  @apply bg-black w-full max-w-screen-xl px-12 xl:px-10 2xl:px-0;
+}
+.overview {
+  @apply text-lg mb-[30px] text-left;
+}
+.overview-small {
+  @apply text-sm mb-[30px] text-left;
+}
+.hierarchy-list {
+  @apply list-none p-0 text-left;
+}
+.hierarchy-list li {
+  @apply mb-5;
+}
+.hierarchy-list strong {
+  @apply text-red-500;
+}
+.access-level {
+  @apply italic text-slate-500;
+}
+.key-control-areas {
+  @apply border-solid border-l-2 border-l-white pl-6;
+}
+.key-control-areas ul {
+  @apply list-none text-left;
+}
+.key-control-areas li {
+  @apply mb-2.5;
+}
+p {
+  @apply leading-normal;
+}
+
 section,
 footer {
   @apply text-center p-5;
-}
-button {
-  @apply bg-[#007bff] text-[white] cursor-pointer px-5 py-2.5 border-[none];
-}
-button:focus {
-  outline: 2px solid var(--cta-color);
-}
-blockquote {
-  @apply italic;
-}
-blockquote footer {
-  @apply text-[0.9em];
 }

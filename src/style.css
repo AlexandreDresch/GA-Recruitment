@@ -469,10 +469,14 @@ main {
   @apply mb-5;
 }
 .hierarchy-list strong {
-  @apply text-red-500;
+  @apply text-red-700;
+}
+
+.pulsing-underline {
+  @apply animate-pulse text-white font-extrabold [animation-duration:_1.2s];
 }
 .access-level {
-  @apply italic text-slate-500;
+  @apply  text-slate-700;
 }
 .key-control-areas {
   @apply border-solid border-l-2 border-l-white pl-6;

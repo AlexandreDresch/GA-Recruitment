@@ -1,6 +1,4 @@
-interface ComponentProps {
-  [key: string]: any;
-}
+import { ComponentProps } from "../types";
 
 export class Component {
   props: ComponentProps;
@@ -16,7 +14,7 @@ export class Component {
   }
 
   mount(target: HTMLElement): void {
-    const tempDiv = document.createElement('div');
+    const tempDiv = document.createElement("div");
     tempDiv.innerHTML = this.render();
     while (tempDiv.firstChild) {
       this.element.appendChild(tempDiv.firstChild);

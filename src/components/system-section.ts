@@ -1,20 +1,5 @@
+import { ControlArea, HierarchyItem, TheSystemProps } from "../types";
 import { Component } from "./component";
-
-interface ControlArea {
-  title: string;
-  description: string;
-}
-
-interface HierarchyItem {
-  title: string;
-  purpose: string;
-  accessLevel: string;
-}
-
-interface TheSystemProps {
-  hierarchy: HierarchyItem[];
-  controlAreas: ControlArea[];
-}
 
 export class SystemSection extends Component {
   constructor(props: TheSystemProps) {
@@ -39,7 +24,7 @@ export class SystemSection extends Component {
                 .map(
                   (item: HierarchyItem) => `
                       <li>
-                      <strong>${item.title}</strong><br>
+                      <strong>${item.title}<span class="pulsing-underline">_</span></strong><br>
                       <em>Purpose</em>: ${item.purpose}<br>
                       <span class="access-level">Access Level: ${item.accessLevel}</span>
                       </li>

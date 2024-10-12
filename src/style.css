@@ -391,13 +391,12 @@ main {
   outline: none;
   margin-top: 10px;
   padding: 8px 0px;
-  font-size: 36px;
   width: 100%;
   letter-spacing: 0.35em;
   text-align: left;
   text-transform: uppercase;
   transition: all 0.2s ease;
-  @apply mx-0 md:mx-auto my-0;
+  @apply mx-0 md:mx-auto my-0 text-xl md:text-4xl;
 
   &:before,
   &:after {
@@ -442,7 +441,7 @@ main {
 }
 
 .section-subtitle {
-  @apply block relative text-xl w-full tracking-[0.35em] text-left uppercase mt-2.5 px-0 py-2 border-[none];
+  @apply block relative text-lg md:text-xl w-full tracking-[0.35em] text-left uppercase px-0 pb-2 border-[none];
 }
 .section-inner-subtitle {
   @apply block relative text-base w-full tracking-[0.35em] text-left uppercase mb-2.5 border-[none];
@@ -452,10 +451,16 @@ main {
   @apply bg-black w-full max-w-screen-xl px-12 xl:px-10 2xl:px-0;
 }
 .overview {
-  @apply text-lg mb-[30px] text-left;
+  @apply md:text-lg mb-7 text-left;
 }
 .overview-small {
   @apply text-sm mb-[30px] text-left;
+}
+.system-list-container {
+  @apply flex gap-2;
+}
+.lateral-panel-image {
+  @apply w-3/5 bg-[url("/assets/lateral-panel.jpg")] bg-no-repeat bg-cover border-2 border-solid border-white;
 }
 .hierarchy-list {
   @apply list-none p-0 text-left;

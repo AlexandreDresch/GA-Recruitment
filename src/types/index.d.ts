@@ -17,3 +17,13 @@ export interface TheSystemProps {
   hierarchy: HierarchyItem[];
   controlAreas: ControlArea[];
 }
+
+export interface ArchiveItem {
+  title: string;
+  description: string;
+  accessLevel: string;
+}
+
+export interface ArchiveProps {
+  archiveItems: ArchiveItem[];
+}

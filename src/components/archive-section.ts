@@ -3,6 +3,8 @@ import { ArchiveProps } from "../types";
 import { Terminal } from "./terminal";
 
 export class ArchiveSection extends Component {
+  private terminalInitialized: boolean = false;
+
   constructor(props: ArchiveProps) {
     super(props);
   }
@@ -24,6 +26,28 @@ export class ArchiveSection extends Component {
   mount(target: HTMLElement): void {
     super.mount(target);
 
+    const archiveSection = document.getElementById("archive");
+
+    if (archiveSection) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !this.terminalInitialized) {
+              this.initializeTerminal();
+              this.terminalInitialized = true;
+            }
+          });
+        },
+        {
+          threshold: 0.3,
+        }
+      );
+
+      observer.observe(archiveSection);
+    }
+  }
+
+  initializeTerminal(): void {
     const terminalContainer = document.getElementById("terminal-container");
     if (terminalContainer) {
       const terminal = new Terminal();

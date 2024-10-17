@@ -27,3 +27,14 @@ export interface ArchiveItem {
 export interface ArchiveProps {
   archiveItems: ArchiveItem[];
 }
+
+export interface Operative {
+  name: string;
+  description: string;
+  image: string;
+  accessLevel: string;
+}
+
+export interface OperativesProps {
+  operatives: Operative[];
+}

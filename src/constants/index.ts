@@ -1,3 +1,5 @@
+import { Operative } from "../types";
+
 export const hierarchy = [
   {
     title: "Central Core (The Authority)",
@@ -104,5 +106,37 @@ export const terminalInitialization: string[] = [
   "System Check: All systems operational. Scanning for classified files... Stand by.",
   "...",
   "Connection established.",
-  "Type 'help' for a list of available commands. Your clearance is noted."
+  "Type 'help' for a list of available commands. Your clearance is noted.",
+];
+
+export const operativesData: Operative[] = [
+  {
+    name: "Killy",
+    description: "The protagonist searching for the Net Terminal Gene.",
+    image:
+      "https://static.wikia.nocookie.net/blame/images/2/29/Killy1.png/revision/latest?cb=20190619192420",
+    accessLevel: "High",
+  },
+  {
+    name: "Cibo",
+    description: "A scientist who aids Killy in his quest.",
+    image:
+      "https://static.wikia.nocookie.net/blame/images/2/29/Killy1.png/revision/latest?cb=20190619192420",
+    accessLevel: "Medium",
+  },
+  {
+    name: "The Safeguard",
+    description: "A mysterious entity enforcing the rules of The City.",
+    image:
+      "https://static.wikia.nocookie.net/blame/images/2/29/Killy1.png/revision/latest?cb=20190619192420",
+
+    accessLevel: "High",
+  },
+  {
+    name: "Dwellers",
+    description: "Inhabitants of The City who interact with Killy.",
+    image:
+      "https://static.wikia.nocookie.net/blame/images/2/29/Killy1.png/revision/latest?cb=20190619192420",
+    accessLevel: "Low",
+  },
 ];

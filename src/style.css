@@ -587,6 +587,50 @@ p {
   @apply relative px-12 xl:px-10 2xl:px-0 max-w-screen-xl text-left;
 }
 
+.swiper {
+  @apply w-full border-2 border-solid border-[white];
+}
+.swiper-wrapper {
+  @apply flex mt-[30px];
+}
+.prev-next-container {
+  @apply flex absolute w-[100px] items-center right-2.5 top-10;
+}
+.swiper-slide {
+  @apply flex flex-col justify-center items-center p-5;
+}
+.swiper-item-details {
+  @apply flex justify-center gap-5;
+}
+.operative-details-container {
+  @apply w-6/12;
+}
+.operative-name {
+  @apply text-[1.8rem] text-neutral-100 mb-2.5;
+}
+.operative-image {
+  @apply max-w-[50%] max-h-[500px] mb-2.5;
+}
+.operative-rank {
+  @apply text-[1.2rem] text-[#b0b0b0] mb-2.5;
+}
+.operative-description {
+  @apply text-base text-gray-300 leading-[1.4];
+}
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #c1c1c1 !important;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: white !important;
+}
+
 section,
 footer {
   @apply text-center p-5;

@@ -9,7 +9,7 @@ import { Operative, OperativesProps } from "../types";
 import { Component } from "./component";
 
 export class OperativesSection extends Component {
-  swiper!: Swiper; // Use definite assignment assertion
+  swiper!: Swiper;
 
   constructor(props: OperativesProps) {
     super(props);
@@ -18,7 +18,12 @@ export class OperativesSection extends Component {
   render(): string {
     return /*html*/ `
       <section id="operatives">
-        <h2 class="section-title">Operatives</h2>
+        <h2 class="section-title" data-text="OPERATIVES" >Operatives</h2>
+
+        <p class="overview">
+        A comprehensive database of active and former operatives within The City Administration. Profiles include detailed analysis of their capabilities, mission history, and current status. Only those with proper clearance can access the full dossiers of operatives involved in classified operations. Engage with caution, as some operatives have been reported missing or are deemed highly dangerous.
+        </p>
+
         <div class="operatives-list">
           <div class="swiper">
             <div class="swiper-wrapper">
@@ -26,10 +31,14 @@ export class OperativesSection extends Component {
                 .map(
                   (operative: Operative) => `
                   <div class="swiper-slide operative-item">
-                    <h3 class="operative-name">${operative.name}</h3>
-                    <img class="operative-image" src="${operative.image}" alt="${operative.name}">
+                    <div class="swiper-item-details">
+                      <img class="operative-image" src="${operative.image}" alt="${operative.name}">
+                    <div class="operative-details-container">
+                      <h3 class="section-subtitle">${operative.name}</h3>
                     <span class="operative-rank">${operative.accessLevel}</span>
                     <p class="operative-description">${operative.description}</p>
+                    </div>
+                    </div>
                   </div>
                 `
                 )
@@ -38,8 +47,10 @@ export class OperativesSection extends Component {
 
             <div class="swiper-pagination"></div>
 
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="prev-next-container">
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -47,16 +58,17 @@ export class OperativesSection extends Component {
   }
 
   mount(parent: HTMLElement): void {
-    parent.insertAdjacentHTML('beforeend', this.render());
-    this.swiper = new Swiper('.swiper', {
+    parent.insertAdjacentHTML("beforeend", this.render());
+    this.swiper = new Swiper(".swiper", {
       modules: [Navigation, Pagination],
+      loop: true,
       slidesPerView: 1,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
       },
       pagination: {
-        el: '.swiper-pagination',
+        el: ".swiper-pagination",
         clickable: true,
       },
     });

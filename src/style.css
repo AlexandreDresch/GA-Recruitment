@@ -127,7 +127,7 @@ body {
 
 /* App */
 #app {
-  @apply w-full h-full bg-black flex flex-col items-center;
+  @apply w-full h-full bg-black flex flex-col items-center mb-40;
 }
 
 /* Header */
@@ -215,6 +215,12 @@ nav ul li a {
   &:hover:after {
     animation: glitch-effect 2s infinite linear alternate;
   }
+}
+
+.small-glitch-button {
+  padding: 5px;
+  align-text: center;
+  margin-top: 0;
 }
 
 @keyframes glitch-effect {
@@ -448,7 +454,7 @@ main {
 }
 
 #system {
-  @apply bg-black w-full max-w-screen-xl px-12 xl:px-10 2xl:px-0;
+  @apply bg-black w-full max-w-screen-xl px-12 xl:px-10 2xl:px-0 mt-20;
 }
 .overview {
   @apply md:text-lg mb-7 text-left;
@@ -493,7 +499,7 @@ p {
 
 /* Archive Section */
 #archive {
-  @apply relative px-12 xl:px-10 2xl:px-0 max-w-screen-xl text-left;
+  @apply relative px-12 xl:px-10 2xl:px-0 max-w-screen-xl text-left mt-20;
 }
 
 /* Terminal */
@@ -584,14 +590,14 @@ p {
 
 /* Operatives Section */
 #operatives {
-  @apply relative px-12 xl:px-10 2xl:px-0 max-w-screen-xl text-left;
+  @apply relative px-12 xl:px-10 2xl:px-0 max-w-screen-xl text-left w-full mt-20;
 }
 
 .swiper {
-  @apply w-full border-2 border-solid border-[white];
+  @apply w-full;
 }
 .swiper-wrapper {
-  @apply flex mt-[30px];
+  @apply flex mt-[30px] w-full;
 }
 .prev-next-container {
   @apply flex absolute w-[100px] items-center right-2.5 top-10;
@@ -600,7 +606,7 @@ p {
   @apply flex flex-col justify-center items-center p-5;
 }
 .swiper-item-details {
-  @apply flex justify-center gap-5;
+  @apply flex justify-center gap-5 flex-col md:flex-row items-center;
 }
 .operative-details-container {
   @apply w-6/12;
@@ -609,13 +615,13 @@ p {
   @apply text-[1.8rem] text-neutral-100 mb-2.5;
 }
 .operative-image {
-  @apply max-w-[50%] max-h-[500px] mb-2.5;
+  @apply max-w-full max-h-[400px];
 }
 .operative-rank {
-  @apply text-[1.2rem] text-[#b0b0b0] mb-2.5;
+  @apply text-[1.2rem] text-[#b0b0b0] mb-2.5 ;
 }
 .operative-description {
-  @apply text-base text-gray-300 leading-[1.4];
+  @apply text-base text-gray-300 leading-[1.4] hidden md:block;
 }
 .swiper-button-prev,
 .swiper-button-next {
@@ -631,7 +637,38 @@ p {
   background-color: white !important;
 }
 
+/* Contact Section */
+#join-us {
+  @apply relative px-12 xl:px-10 2xl:px-0 max-w-screen-xl text-left mt-20;
+}
+
+/* Footer */
+
+footer {
+  @apply bg-black text-center justify-between w-full flex max-w-screen-xl fixed py-5 bottom-0 z-40 px-12 xl:px-10 2xl:px-0;
+  list-style: none;
+  align-items: bottom;
+}
+.icon {
+  @apply w-[26px] h-[26px];
+}
+footer nav {
+  @apply flex flex-col gap-0 w-[20.5%];
+}
+footer nav p {
+  @apply text-left m-0;
+}
+footer nav ul {
+  @apply gap-1 justify-between mt-1.5 m-0;
+}
+footer div {
+  @apply flex flex-col justify-between items-start max-h-[50px];
+}
+footer div p {
+  @apply m-0;
+}
+
 section,
 footer {
-  @apply text-center p-5;
+  @apply text-center;
 }

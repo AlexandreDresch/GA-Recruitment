@@ -32,10 +32,12 @@ export class OperativesSection extends Component {
                   (operative: Operative) => `
                   <div class="swiper-slide operative-item">
                     <div class="swiper-item-details">
-                      <img class="operative-image" src="${operative.image}" alt="${operative.name}">
-                    <div class="operative-details-container">
+                    <div>
                       <h3 class="section-subtitle">${operative.name}</h3>
                     <span class="operative-rank">${operative.accessLevel}</span>
+                      <img class="operative-image" src="${operative.image}" alt="${operative.name}">
+                    </div>
+                    <div class="operative-details-container">
                     <p class="operative-description">${operative.description}</p>
                     </div>
                     </div>

@@ -11,6 +11,7 @@ import {
   archiveData,
   operativesData,
 } from "./constants";
+import { JoinUsSection } from "./components/join-section";
 
 const app = document.getElementById("app") as HTMLElement;
 
@@ -21,7 +22,7 @@ const archiveSectionComponent = new ArchiveSection(archiveData);
 const operativesComponent = new OperativesSection({
   operatives: operativesData,
 });
-
+const joinUsComponent = new JoinUsSection();
 const footerComponent = new Footer();
 
 headerComponent.mount(app);
@@ -29,4 +30,5 @@ mainSectionComponent.mount(app);
 systemSectionComponent.mount(app);
 archiveSectionComponent.mount(app);
 operativesComponent.mount(app);
+joinUsComponent.mount(app);
 footerComponent.mount(app);

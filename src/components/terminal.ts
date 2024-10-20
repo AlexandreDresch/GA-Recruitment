@@ -116,9 +116,6 @@ export class Terminal extends Component {
 
   updateCurrentOutput(): void {
     const terminalOutput = document.getElementById("terminal-output");
-    const inputElement = document.getElementById(
-      "terminal-input"
-    ) as HTMLInputElement;
 
     if (terminalOutput) {
       terminalOutput.innerHTML = [...this.output, this.currentCommand].join(
@@ -132,14 +129,6 @@ export class Terminal extends Component {
       requestAnimationFrame(() => {
         terminalOutput.scrollTop = terminalOutput.scrollHeight;
       });
-    }
-
-    if (inputElement) {
-      if (this.caretVisible) {
-        inputElement.classList.add("caret-visible");
-      } else {
-        inputElement.classList.remove("caret-visible");
-      }
     }
   }
 
@@ -186,7 +175,6 @@ export class Terminal extends Component {
     ) as HTMLInputElement;
     if (inputElement) {
       inputElement.disabled = false;
-      inputElement.focus();
     }
   }
 
@@ -198,7 +186,7 @@ export class Terminal extends Component {
         )}</div>
         <div class="terminal-input">
           <span>${this.prompt}</span>
-          <input id="terminal-input" type="text" autofocus ${
+          <input id="terminal-input" type="text" ${
             this.isInputDisabled ? "disabled" : ""
           } />
         </div>
@@ -215,12 +203,6 @@ export class Terminal extends Component {
       inputElement.addEventListener("keydown", (event) =>
         this.handleKeyDown(event, inputElement)
       );
-      inputElement.addEventListener("focus", () => {
-        inputElement.classList.add("focused");
-      });
-      inputElement.addEventListener("blur", () => {
-        inputElement.classList.remove("focused");
-      });
     }
   }
 }

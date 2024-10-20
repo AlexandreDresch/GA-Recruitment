@@ -12,6 +12,7 @@ import {
   operativesData,
 } from "./constants";
 import { JoinUsSection } from "./components/join-section";
+import { BlameSection } from "./components/blame-section";
 
 const app = document.getElementById("app") as HTMLElement;
 
@@ -23,6 +24,7 @@ const operativesComponent = new OperativesSection({
   operatives: operativesData,
 });
 const joinUsComponent = new JoinUsSection();
+const blameComponent = new BlameSection({title: 'Blame!'});
 const footerComponent = new Footer();
 
 headerComponent.mount(app);
@@ -31,4 +33,5 @@ systemSectionComponent.mount(app);
 archiveSectionComponent.mount(app);
 operativesComponent.mount(app);
 joinUsComponent.mount(app);
+blameComponent.mount(app);
 footerComponent.mount(app);

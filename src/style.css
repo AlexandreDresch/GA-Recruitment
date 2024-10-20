@@ -338,23 +338,23 @@ main {
 
 /* Banner */
 .banner-container {
-  @apply h-[108px] w-full max-w-screen-xl relative z-40 flex box-border justify-between border-2 border-solid border-white left-0 top-[100px];
+  @apply h-[112px] w-full max-w-screen-xl relative z-40 flex box-border justify-between border-2 border-solid border-white left-0 top-[100px];
 }
 .banner {
-  @apply w-full md:w-4/12 flex flex-col justify-center gap-[5px] p-3;
+  @apply w-full md:w-4/12 flex flex-col justify-center gap-[5px] p-1 lg:p-3;
   align-items: left;
 }
 .banner-left {
   @apply md:border-r-2 md:border-r-white border-solid;
 }
 .banner-right {
-  @apply border-l-2 border-l-white border-solid hidden md:block;
+  @apply border-l-2 border-l-white border-solid hidden md:block box-border;
 }
 .banner h1 {
-  @apply text-[32px] not-italic font-bold leading-[normal];
+  @apply text-2xl lg:text-3xl not-italic font-bold leading-[normal];
 }
 .banner h2 {
-  @apply text-xl not-italic font-normal leading-[normal];
+  @apply text-base lg:text-xl not-italic font-normal leading-[normal];
 }
 .banner p {
   @apply text-[11px] not-italic font-normal leading-[normal];
@@ -475,14 +475,14 @@ main {
   @apply mb-5;
 }
 .hierarchy-list strong {
-  @apply text-red-700;
+  @apply text-red-800;
 }
 
 .pulsing-underline {
   @apply animate-pulse text-white font-extrabold [animation-duration:_1.2s];
 }
 .access-level {
-  @apply text-slate-700;
+  @apply text-slate-400;
 }
 .key-control-areas {
   @apply border-solid border-l-2 border-l-white pl-6;
@@ -642,6 +642,19 @@ p {
   @apply relative px-12 xl:px-10 2xl:px-0 max-w-screen-xl text-left mt-20;
 }
 
+/* Blame Section */
+#blame-section {
+  @apply relative px-12 xl:px-10 2xl:px-0 max-w-screen-xl text-left w-full mt-20;
+}
+
+.manga-item {
+  @apply flex flex-col gap-5 md:flex-row;
+}
+
+.manga-item-details {
+  @apply flex flex-col gap-2;
+}
+
 /* Footer */
 
 footer {
@@ -649,23 +662,18 @@ footer {
   list-style: none;
   align-items: bottom;
 }
-.icon {
-  @apply w-[26px] h-[26px];
-}
+
 footer nav {
-  @apply flex flex-col gap-0 w-[20.5%];
+  @apply flex flex-col gap-0;
 }
 footer nav p {
-  @apply text-left m-0;
+  @apply text-left;
 }
 footer nav ul {
-  @apply gap-1 justify-between mt-1.5 m-0;
+  @apply gap-1 flex justify-between mt-1.5;
 }
 footer div {
-  @apply flex flex-col justify-between items-start max-h-[50px];
-}
-footer div p {
-  @apply m-0;
+  @apply hidden flex-col md:flex justify-between items-start max-h-[50px];
 }
 
 section,

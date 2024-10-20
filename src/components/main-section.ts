@@ -24,7 +24,7 @@ export class MainSection extends Component {
 
               <img src="/assets/icons/caret-double-up.svg" alt="Join Icon"/>
             </div>
-            <p>Submit your application through the official network terminal. Applications are reviewed by our automated Safeguard overseers. Be prepared for immediate deployment should you meet our qualifications. </p>
+            <p>Submit your application through the official network terminal. Applications are reviewed by our automated Safeguard overseers.</p>
           </div>
         </div>
 

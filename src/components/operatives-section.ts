@@ -34,7 +34,7 @@ export class OperativesSection extends Component {
                     <div class="swiper-item-details">
                     <div>
                       <h3 class="section-subtitle">${operative.name}</h3>
-                    <span class="operative-rank">${operative.accessLevel}</span>
+                    <p class="operative-rank">${operative.accessLevel}</p>
                       <img class="operative-image" src="${operative.image}" alt="${operative.name}">
                     </div>
                     <div class="operative-details-container">

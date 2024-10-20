@@ -24,7 +24,7 @@ export class SystemSection extends Component {
                 .map(
                   (item: HierarchyItem) => `
                       <li>
-                      <strong>${item.title}<span class="pulsing-underline">_</span></strong><br>
+                      <strong>${item.title}</strong><br>
                       <em>Purpose</em>: ${item.purpose}<br>
                       <span class="access-level">Access Level: ${item.accessLevel}</span>
                       </li>

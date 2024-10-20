@@ -59,7 +59,7 @@ export class Footer extends Component {
           </li>
           <li>
             <a
-              href="#blame" 
+              href="#blame-section" 
               data-text="05"
               class="glitch-button small-glitch-button"
               aria-label="Go to Blame section"
@@ -70,19 +70,9 @@ export class Footer extends Component {
         </ul>
       </nav>
 
-      <div class="">
-        <p>USE ARROWS TO SCROLL</p>
-        <img src="./assets/icons/chevron-down.svg" class="icon" alt="Scroll Icon" />
-      </div>
-
       <div>
         <p>&copy; 2024 T.C.A</p>
         <p>All rights reserved.</p>
-      </div>
-
-      <div class="hidden" aria-label="Contact Information" role="contentinfo">
-        <p>EMAIL:</p>
-        <p>CONTACT@IMG404.ORG</p>
       </div>
     </footer>
     `;

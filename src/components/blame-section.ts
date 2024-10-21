@@ -1,46 +1,34 @@
 import { Component } from "./component";
-import axios from "axios";
-
-interface BlameSectionProps {
-  title: string;
-}
+import { fetchMangaData } from "../services/api/manga-api";
+import { BlameSectionProps } from "../types";
 
 export class BlameSection extends Component {
   mangaContent: string;
 
   constructor(props: BlameSectionProps) {
     super(props);
-    this.mangaContent = "<p>Loading...</p>";
-    this.fetchMangaData();
+    this.mangaContent = "<p class='overview'>Loading...</p>";
+    this.loadMangaData();
   }
 
-  async fetchMangaData(): Promise<void> {
-    const baseUrl = "https://api.jikan.moe/v4";
-
+  async loadMangaData(): Promise<void> {
     try {
-      const resp = await axios({
-        method: "GET",
-        url: `${baseUrl}/manga`,
-        params: {
-          q: this.props.title,
-          limit: 1,
-        },
-      });
-
-      const mangaData = resp.data.data[0];
+      const mangaData = await fetchMangaData(this.props.title);
 
       if (!mangaData) {
-        this.mangaContent = "<p>No manga data found.</p>";
+        this.mangaContent = "<p class='overview'>No manga data found.</p>";
       } else {
         this.mangaContent = /*html*/ `
           <div class="manga-item">
             <img src="${mangaData.images.jpg.large_image_url}" alt="${
-              mangaData.title
-            }" />
+          mangaData.title
+        }" />
             <div class="manga-item-details">
               <p><strong>Score:</strong> ${mangaData.score || "N/A"}</p>
               <p><strong>Status:</strong> ${mangaData.status}</p>
-              <p><strong>Chapters:</strong> ${mangaData.chapters || "Unknown"}</p>
+              <p><strong>Chapters:</strong> ${
+                mangaData.chapters || "Unknown"
+              }</p>
               <p><strong>Volumes:</strong> ${mangaData.volumes || "Unknown"}</p>
               <p><strong>Published:</strong> ${mangaData.published.string}</p>
               <p><strong>Authors:</strong> ${mangaData.authors
@@ -52,7 +40,9 @@ export class BlameSection extends Component {
               <p><strong>Genres:</strong> ${mangaData.genres
                 .map((genre: any) => genre.name)
                 .join(", ")}</p>
-              <a href="${mangaData.url}" class="glitch-button" data-text="View on MyAnimeList" target="_blank">View on MyAnimeList</a>
+              <a href="${
+                mangaData.url
+              }" class="glitch-button" data-text="View on MyAnimeList" target="_blank">View on MyAnimeList</a>
             </div>
           </div>
         `;
@@ -60,8 +50,7 @@ export class BlameSection extends Component {
 
       this.updateContent();
     } catch (error) {
-      console.error(error);
-      this.mangaContent = "<p>Error loading manga data.</p>";
+      this.mangaContent = "<p class='overview'>Error loading manga data.</p>";
       this.updateContent();
     }
   }

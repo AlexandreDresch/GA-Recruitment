@@ -38,3 +38,7 @@ export interface Operative {
 export interface OperativesProps {
   operatives: Operative[];
 }
+
+interface BlameSectionProps {
+  title: string;
+}

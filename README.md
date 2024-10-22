@@ -24,6 +24,7 @@ This is a recruitment simulation website inspired by Blame! featuring interactiv
 
 - Node.js and npm (if running locally).
 - Docker installed (if running with Docker).
+- Populate `.env` file based on `.env.EXAMPLE`.
 
 ## Running the Application
 

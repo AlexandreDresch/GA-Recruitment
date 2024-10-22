@@ -17,29 +17,29 @@ export class OperativesSection extends Component {
 
   render(): string {
     return /*html*/ `
-      <section id="operatives">
-        <h2 class="section-title" data-text="OPERATIVES" >Operatives</h2>
+      <section id="operatives" aria-labelledby="operatives-title">
+        <h2 id="operatives-title" class="section-title" data-text="OPERATIVES">Operatives</h2>
 
         <p class="overview">
-        A comprehensive database of active and former operatives within The City Administration. Profiles include detailed analysis of their capabilities, mission history, and current status. Only those with proper clearance can access the full dossiers of operatives involved in classified operations. Engage with caution, as some operatives have been reported missing or are deemed highly dangerous.
+        A comprehensive database of active and former operatives within The City Administration. Profiles include detailed analysis of their capabilities, mission history, and current status. Engage with caution, as some operatives have been reported missing or are deemed highly dangerous.
         </p>
 
         <div class="operatives-list">
-          <div class="swiper">
+          <div class="swiper" role="region" aria-label="Operatives Profiles">
             <div class="swiper-wrapper">
               ${this.props.operatives
                 .map(
                   (operative: Operative) => `
-                  <div class="swiper-slide operative-item">
+                  <div class="swiper-slide operative-item" role="group" aria-labelledby="operative-${operative.name}">
                     <div class="swiper-item-details">
-                    <div>
-                      <h3 class="section-subtitle">${operative.name}</h3>
-                    <p class="operative-rank">${operative.accessLevel}</p>
-                      <img class="operative-image" src="${operative.image}" alt="${operative.name}">
-                    </div>
-                    <div class="operative-details-container">
-                    <p class="operative-description">${operative.description}</p>
-                    </div>
+                      <div>
+                        <h3 id="operative-${operative.name}" class="section-subtitle">${operative.name}</h3>
+                        <p class="operative-rank" aria-label="Operative rank">${operative.accessLevel}</p>
+                        <img class="operative-image" src="${operative.image}" alt="${operative.name}'s profile picture">
+                      </div>
+                      <div class="operative-details-container">
+                        <p class="operative-description">${operative.description}</p>
+                      </div>
                     </div>
                   </div>
                 `
@@ -47,11 +47,11 @@ export class OperativesSection extends Component {
                 .join("")}
             </div>
 
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination" aria-label="Operatives profiles pagination"></div>
 
             <div class="prev-next-container">
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
+              <button class="swiper-button-prev" aria-label="Previous profile" tabindex="0"></button>
+              <button class="swiper-button-next" aria-label="Next profile" tabindex="0"></button>
             </div>
           </div>
         </div>
@@ -74,5 +74,8 @@ export class OperativesSection extends Component {
         clickable: true,
       },
     });
+
+    document.querySelector(".swiper-button-next")?.setAttribute("tabindex", "0");
+    document.querySelector(".swiper-button-prev")?.setAttribute("tabindex", "0");
   }
 }

@@ -114,6 +114,28 @@ body {
   @apply leading-none bg-black text-white box-border font-roboto;
 }
 
+/* Scroll Bar */
+
+/* width */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-black;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-red-500;
+}
+
 /* Variables */
 :root {
   --logo-bg: url("/assets/logo.svg");
@@ -289,10 +311,10 @@ nav ul li a {
 
 /* Hamburger Menu */
 #menu {
-  @apply hidden flex-col justify-start absolute bg-black w-2/5 min-h-screen px-0 pt-10 right-0 top-16 gap-10 list-none;
+  @apply hidden flex-col justify-start absolute bg-black w-4/5 sm:w-2/5 min-h-screen px-0 pt-24 right-0 top-0 gap-10 list-none;
 }
 #menu li {
-  @apply w-full text-right px-0 pr-16 m-0;
+  @apply w-full text-right pl-2 pr-16 m-0;
 }
 #menu.show {
   @apply flex;
@@ -609,7 +631,7 @@ p {
 }
 
 .toast-container {
-  @apply hidden fixed z-50 top-5 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm font-bold px-4 py-2 border border-white;
+  @apply fixed z-50 top-5 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm font-bold px-4 py-2 border border-white;
 }
 
 /* Blame Section */

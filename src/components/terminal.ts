@@ -1,11 +1,6 @@
-import { terminalInitialization } from "../constants";
-import { ComponentProps } from "../types";
+import { terminalInitialization, archiveData } from "../constants";
+import { TerminalProps } from "../types";
 import { Component } from "./component";
-import { archiveData } from "../constants";
-
-interface TerminalProps extends ComponentProps {
-  prompt?: string;
-}
 
 export class Terminal extends Component {
   private output: string[] = [];
@@ -54,7 +49,7 @@ export class Terminal extends Component {
         return;
       case "about":
         response =
-          "In the depths of the Netsphere, where the remnants of civilization linger, data flows like shadows, obscured by secrets and the echoes of the lost.";
+          "The Netsphere refers to the hyper-evolved version of the Internet in the universe of BLAME!. First coming online before the City's construction, untold tens of thousands of years ago, the Netsphere was created by humans to solve all worldly problems.";
         break;
       case "list":
         response = this.listArchiveItems();
@@ -180,15 +175,16 @@ export class Terminal extends Component {
 
   render(): string {
     return `
-      <div class="terminal crt">
-        <div id="terminal-output" class="terminal-output">${this.output.join(
+      <div class="terminal crt" role="region" aria-live="polite" aria-label="Terminal window displaying commands and responses">
+        <div id="terminal-output" class="terminal-output" aria-live="assertive" aria-atomic="true">${this.output.join(
           "<br>"
         )}</div>
         <div class="terminal-input">
+          <label for="terminal-input" class="sr-only">Type your command</label>
           <span>${this.prompt}</span>
           <input id="terminal-input" type="text" ${
             this.isInputDisabled ? "disabled" : ""
-          } />
+          } aria-label="Command input, type your command here" />
         </div>
       </div>
     `;

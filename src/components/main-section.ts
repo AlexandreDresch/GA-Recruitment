@@ -13,31 +13,29 @@ export class MainSection extends Component {
         <div class="banner-container">
           <div class="banner banner-left">
             <h1>OUR.MISSION</h1>
-            <p>Our mission is to ensure that the remnants 
-            of humanity thrive in a world dominated by 
-            endless architecture and hostile entities.</p>
+            <p>Our mission is to ensure that the remnants of humanity thrive in a world dominated by endless architecture and hostile entities.</p>
           </div>
 
           <div class="banner banner-right">
             <div>
               <h2>Application Procedure</h2>
 
-              <img src="/assets/icons/caret-double-up.svg" alt="Join Icon"/>
+              <img src="/assets/icons/caret-double-up.svg" alt="Join Icon" aria-hidden="true"/>
             </div>
             <p>Submit your application through the official network terminal. Applications are reviewed by our automated Safeguard overseers.</p>
           </div>
         </div>
 
         <div class="promo-container">
-          <p>今すぐ参加して重力ビームエミッターを受け取りましょう</p>
+          <p lang="ja">今すぐ参加して重力ビームエミッターを受け取りましょう</p>
         </div>
 
-        <div class="details-container">
-          <img src="/assets/details-right.svg" alt="Right Details Image"/>
-          <img src="/assets/details-left.svg" alt="Left Details Image"/>          
+        <div class="details-container" role="img" aria-label="Decorative images of The City">
+          <img src="/assets/details-right.svg" alt="Decorative right side detail"/>
+          <img src="/assets/details-left.svg" alt="Decorative left side detail"/>          
         </div>
 
-        <div id="three-canvas">
+        <div id="three-canvas" aria-label="Interactive 3D Model of the Gravitational Beam Emitter" tabindex="0">
           <h3 id="overlay-text">Join Now</h3>
         </div>        
 
@@ -120,6 +118,25 @@ export class MainSection extends Component {
 
     window.addEventListener("mouseup", () => {
       this.isUserInteracting = false;
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (this.model && !this.isUserInteracting) {
+        switch (event.key) {
+          case "ArrowLeft":
+            this.model.rotation.y -= 0.05;
+            break;
+          case "ArrowRight":
+            this.model.rotation.y += 0.05;
+            break;
+          case "ArrowUp":
+            this.model.rotation.x -= 0.05;
+            break;
+          case "ArrowDown":
+            this.model.rotation.x += 0.05;
+            break;
+        }
+      }
     });
   }
 }

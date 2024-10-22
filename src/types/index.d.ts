@@ -42,3 +42,7 @@ export interface OperativesProps {
 interface BlameSectionProps {
   title: string;
 }
+
+export interface TerminalProps extends ComponentProps {
+  prompt?: string;
+}

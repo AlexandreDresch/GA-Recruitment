@@ -11,14 +11,15 @@ export class ArchiveSection extends Component {
 
   render(): string {
     return /*html*/ `
-      <section id="archive" >
-        <h2 class="section-title" data-text="ARCHIVE">Archive</h2>
+      <section id="archive" aria-labelledby="archive-title" aria-describedby="archive-description">
+        <h2 id="archive-title" class="section-title" data-text="ARCHIVE">Archive</h2>
 
-        <p class="overview">
+        <p id="archive-description" class="overview">
           Classified information stored for operatives’ review. Access is restricted based on clearance levels. Dossiers on terminated agents, anomalies within the city, and past operations can be found here.
         </p>
 
-        <div id="terminal-container"></div>
+        <div id="terminal-container" role="region" aria-live="polite" aria-label="Terminal displaying classified data">
+        </div>
       </section>
     `;
   }
@@ -52,6 +53,7 @@ export class ArchiveSection extends Component {
     if (terminalContainer) {
       const terminal = new Terminal();
       terminal.mount(terminalContainer);
+      terminalContainer.setAttribute('aria-live', 'assertive');
     }
   }
 }

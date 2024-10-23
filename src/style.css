@@ -493,7 +493,7 @@ p {
 }
 
 .terminal-output {
-  @apply whitespace-pre-wrap; 
+  @apply whitespace-pre-wrap max-h-[400px] overflow-y-auto flex-grow; 
   animation: fadeIn 0.5s;
 }
 
